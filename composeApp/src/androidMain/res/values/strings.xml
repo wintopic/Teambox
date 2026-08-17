@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">怪团建</string>
+    <string name="app_description">自动识别屏幕上的举手 +1 标志并点击</string>
+    <string name="template_capture_expired">模板截图会话已失效，请重新采样</string>
+    <string name="template_capture_rotated">屏幕方向已变化，请返回目标应用重新采样</string>
+    <string name="template_capture_title">本地模板采样</string>
+    <string name="template_capture_instructions">目标 %1$s · %2$s\n拖动框选稳定图标或按钮。只保存选区 PNG，整屏帧不会写入文件。</string>
+    <string name="template_id_hint">模板 ID，例如 testhost-submit</string>
+    <string name="template_selection_none">尚未选择区域</string>
+    <string name="template_selection_invalid">尚未选择有效区域</string>
+    <string name="template_selection_size">选区 %1$d×%2$d 像素</string>
+    <string name="template_selection_required">请先拖动框选一个区域</string>
+    <string name="template_id_invalid">模板 ID 只能使用字母、数字、点、下划线和短横线</string>
+    <string name="template_saving">正在保存本地模板…</string>
+    <string name="template_saved">已保存 %1$s（%2$d×%3$d）</string>
+    <string name="template_already_exists">该模板 ID 已存在，请换一个名称，避免无意覆盖</string>
+    <string name="template_cancel">取消</string>
+    <string name="template_save_selection">保存选区</string>
+    <string name="template_selection_canvas">模板选区画布</string>
+</resources>

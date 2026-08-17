@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ime_name">怪团建</string>
+    <string name="accessibility_service_name">怪团建服务</string>
+    <string name="accessibility_service_description">经用户明确开启后，自动识别屏幕上的举手 +1 标志并点击；关闭后停止识别和点击。</string>
+</resources>

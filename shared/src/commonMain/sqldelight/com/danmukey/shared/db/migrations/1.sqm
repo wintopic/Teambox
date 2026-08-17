@@ -1,0 +1,12 @@
+CREATE TABLE diagnostic_event (
+  id TEXT NOT NULL PRIMARY KEY,
+  level TEXT NOT NULL,
+  event_code TEXT NOT NULL,
+  target_id TEXT,
+  task_id TEXT,
+  details_json TEXT NOT NULL DEFAULT '{}',
+  created_at INTEGER NOT NULL
+);
+
+CREATE INDEX diagnostic_event_created_idx
+  ON diagnostic_event(created_at DESC);

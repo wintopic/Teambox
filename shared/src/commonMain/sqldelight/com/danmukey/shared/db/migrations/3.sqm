@@ -1,0 +1,2 @@
+CREATE INDEX episode_map_section_idx
+  ON episode_map(section_id);

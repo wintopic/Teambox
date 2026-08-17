@@ -1,0 +1,13 @@
+CREATE TABLE content_follow_state (
+  target_id TEXT NOT NULL PRIMARY KEY,
+  app_identifier TEXT NOT NULL,
+  pack_id TEXT NOT NULL,
+  section_id TEXT NOT NULL,
+  group_id TEXT,
+  playback_position_ms INTEGER,
+  confidence REAL NOT NULL,
+  observed_at INTEGER NOT NULL
+);
+
+CREATE INDEX content_follow_app_observed_idx
+  ON content_follow_state(app_identifier, observed_at DESC);

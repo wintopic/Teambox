@@ -1,0 +1,157 @@
+{
+    "format": "danmukey-accessibility-fixture",
+    "formatVersion": 1,
+    "capturedAt": 1786777308485,
+    "packageName": "com.tencent.qqlive",
+    "appVersionCode": 32123,
+    "systemApi": 29,
+    "orientation": "Landscape",
+    "screenWidth": 2340,
+    "screenHeight": 1080,
+    "nodes": [
+        {
+            "depth": 6,
+            "className": "android.view.View",
+            "resourceId": null,
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 0,
+                "top": 0,
+                "right": 2340,
+                "bottom": 1080
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 7,
+            "className": "android.view.View",
+            "resourceId": null,
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 0,
+                "top": 0,
+                "right": 2340,
+                "bottom": 14
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 7,
+            "className": "android.view.View",
+            "resourceId": null,
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 220,
+                "top": 33,
+                "right": 286,
+                "bottom": 99
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 7,
+            "className": "android.widget.ScrollView",
+            "resourceId": null,
+            "clickable": true,
+            "editable": true,
+            "focusable": true,
+            "bounds": {
+                "left": 325,
+                "top": 40,
+                "right": 1602,
+                "bottom": 92
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 7,
+            "className": "android.view.View",
+            "resourceId": null,
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 1700,
+                "top": 33,
+                "right": 1766,
+                "bottom": 99
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 7,
+            "className": "android.view.View",
+            "resourceId": null,
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 1794,
+                "top": 33,
+                "right": 1860,
+                "bottom": 99
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 7,
+            "className": "android.view.View",
+            "resourceId": null,
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 1916,
+                "top": 22,
+                "right": 2092,
+                "bottom": 110
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 8,
+            "className": "android.view.View",
+            "resourceId": null,
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 220,
+                "top": 141,
+                "right": 479,
+                "bottom": 218
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 4,
+            "className": "androidx.recyclerview.widget.RecyclerView",
+            "resourceId": null,
+            "clickable": false,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 0,
+                "top": 0,
+                "right": 2261,
+                "bottom": 1000
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        }
+    ]
+}

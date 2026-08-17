@@ -1,0 +1,515 @@
+CREATE TABLE keyboard_pack (
+  id TEXT NOT NULL PRIMARY KEY,
+  name TEXT NOT NULL,
+  author TEXT NOT NULL,
+  version INTEGER NOT NULL,
+  description TEXT NOT NULL DEFAULT '',
+  cover_path TEXT,
+  created_at INTEGER NOT NULL,
+  updated_at INTEGER NOT NULL
+);
+
+CREATE TABLE keyboard_section (
+  id TEXT NOT NULL PRIMARY KEY,
+  pack_id TEXT NOT NULL REFERENCES keyboard_pack(id) ON DELETE CASCADE,
+  title TEXT NOT NULL,
+  type TEXT NOT NULL,
+  episode_number INTEGER,
+  sort_order INTEGER NOT NULL
+);
+
+CREATE TABLE phrase_group (
+  id TEXT NOT NULL PRIMARY KEY,
+  section_id TEXT NOT NULL REFERENCES keyboard_section(id) ON DELETE CASCADE,
+  title TEXT NOT NULL,
+  start_ms INTEGER,
+  end_ms INTEGER,
+  sort_order INTEGER NOT NULL
+);
+
+CREATE TABLE phrase_item (
+  id TEXT NOT NULL PRIMARY KEY,
+  group_id TEXT NOT NULL REFERENCES phrase_group(id) ON DELETE CASCADE,
+  text TEXT NOT NULL,
+  tags_json TEXT NOT NULL DEFAULT '[]',
+  source_json TEXT NOT NULL,
+  review_state TEXT NOT NULL,
+  enabled INTEGER NOT NULL DEFAULT 1,
+  sort_order INTEGER NOT NULL,
+  created_at INTEGER NOT NULL,
+  updated_at INTEGER NOT NULL
+);
+
+CREATE TABLE phrase_usage (
+  phrase_id TEXT NOT NULL REFERENCES phrase_item(id) ON DELETE CASCADE,
+  target_id TEXT NOT NULL,
+  use_count INTEGER NOT NULL DEFAULT 0,
+  last_used_at INTEGER,
+  PRIMARY KEY (phrase_id, target_id)
+);
+
+CREATE TABLE episode_map (
+  id TEXT NOT NULL PRIMARY KEY,
+  target_id TEXT NOT NULL,
+  normalized_title TEXT NOT NULL,
+  section_id TEXT NOT NULL REFERENCES keyboard_section(id) ON DELETE CASCADE,
+  confidence REAL NOT NULL,
+  updated_at INTEGER NOT NULL,
+  UNIQUE (target_id, normalized_title)
+);
+
+CREATE TABLE content_follow_state (
+  target_id TEXT NOT NULL PRIMARY KEY,
+  app_identifier TEXT NOT NULL,
+  pack_id TEXT NOT NULL,
+  section_id TEXT NOT NULL,
+  group_id TEXT,
+  playback_position_ms INTEGER,
+  confidence REAL NOT NULL,
+  observed_at INTEGER NOT NULL
+);
+
+CREATE TABLE target_profile (
+  id TEXT NOT NULL PRIMARY KEY,
+  platform TEXT NOT NULL,
+  profile_json TEXT NOT NULL,
+  profile_version INTEGER NOT NULL,
+  updated_at INTEGER NOT NULL
+);
+
+CREATE TABLE target_rule_revision (
+  rule_id TEXT NOT NULL,
+  revision INTEGER NOT NULL,
+  source TEXT NOT NULL,
+  signature_state TEXT NOT NULL,
+  state TEXT NOT NULL,
+  envelope_json TEXT NOT NULL,
+  imported_at INTEGER NOT NULL,
+  activated_at INTEGER,
+  PRIMARY KEY (rule_id, revision)
+);
+
+CREATE TABLE send_preset (
+  id TEXT NOT NULL PRIMARY KEY,
+  name TEXT NOT NULL,
+  config_json TEXT NOT NULL,
+  updated_at INTEGER NOT NULL
+);
+
+CREATE TABLE automation_task (
+  id TEXT NOT NULL PRIMARY KEY,
+  pack_id TEXT NOT NULL,
+  section_id TEXT,
+  group_id TEXT,
+  preset_json TEXT NOT NULL,
+  status TEXT NOT NULL,
+  current_index INTEGER NOT NULL DEFAULT 0,
+  planned_count INTEGER NOT NULL,
+  completed_count INTEGER NOT NULL DEFAULT 0,
+  composer_reopen_count INTEGER NOT NULL DEFAULT 0,
+  created_at INTEGER NOT NULL,
+  started_at INTEGER,
+  finished_at INTEGER
+);
+
+CREATE TABLE send_record (
+  id TEXT NOT NULL PRIMARY KEY,
+  task_id TEXT,
+  phrase_id TEXT NOT NULL,
+  pack_id TEXT NOT NULL,
+  target_id TEXT NOT NULL,
+  final_text TEXT NOT NULL,
+  mode TEXT NOT NULL,
+  locator_source TEXT,
+  confidence REAL,
+  result TEXT NOT NULL,
+  error_code TEXT,
+  started_at INTEGER NOT NULL,
+  finished_at INTEGER
+);
+
+CREATE TABLE diagnostic_event (
+  id TEXT NOT NULL PRIMARY KEY,
+  level TEXT NOT NULL,
+  event_code TEXT NOT NULL,
+  target_id TEXT,
+  task_id TEXT,
+  details_json TEXT NOT NULL DEFAULT '{}',
+  created_at INTEGER NOT NULL
+);
+
+CREATE INDEX keyboard_section_pack_sort_idx
+  ON keyboard_section(pack_id, sort_order);
+
+CREATE INDEX phrase_group_section_sort_idx
+  ON phrase_group(section_id, sort_order);
+
+CREATE INDEX phrase_item_group_sort_idx
+  ON phrase_item(group_id, sort_order);
+
+CREATE INDEX phrase_usage_target_last_used_idx
+  ON phrase_usage(target_id, last_used_at);
+
+CREATE INDEX episode_map_section_idx
+  ON episode_map(section_id);
+
+CREATE INDEX content_follow_app_observed_idx
+  ON content_follow_state(app_identifier, observed_at DESC);
+
+CREATE INDEX send_record_task_started_idx
+  ON send_record(task_id, started_at);
+
+CREATE INDEX diagnostic_event_created_idx
+  ON diagnostic_event(created_at DESC);
+
+upsertAutomationTask:
+INSERT OR REPLACE INTO automation_task(
+  id, pack_id, section_id, group_id, preset_json, status,
+  current_index, planned_count, completed_count, composer_reopen_count,
+  created_at, started_at, finished_at
+)
+VALUES (?, ?, NULL, NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+
+selectAutomationTaskById:
+SELECT *
+FROM automation_task
+WHERE id = ?;
+
+selectRunningAutomationTasks:
+SELECT *
+FROM automation_task
+WHERE status = 'Running'
+ORDER BY started_at ASC;
+
+failRunningAutomationTasks:
+UPDATE automation_task
+SET status = 'Failed', finished_at = ?
+WHERE status = 'Running';
+
+deleteFinishedAutomationTasks:
+DELETE FROM automation_task
+WHERE status != 'Running';
+
+deleteAutomationTasksFinishedBefore:
+DELETE FROM automation_task
+WHERE status != 'Running'
+  AND finished_at IS NOT NULL
+  AND finished_at < ?;
+
+CREATE INDEX target_rule_revision_state_idx
+  ON target_rule_revision(rule_id, state, activated_at DESC);
+
+selectEnabledPhrases:
+SELECT *
+FROM phrase_item
+WHERE group_id = ? AND enabled = 1
+ORDER BY sort_order;
+
+selectUsageForTarget:
+SELECT *
+FROM phrase_usage
+WHERE target_id = ?
+ORDER BY use_count, last_used_at;
+
+upsertPhraseUsage:
+INSERT OR REPLACE INTO phrase_usage(phrase_id, target_id, use_count, last_used_at)
+VALUES (?, ?, ?, ?);
+
+countKeyboardPacks:
+SELECT count(*)
+FROM keyboard_pack;
+
+selectAllKeyboardPacks:
+SELECT *
+FROM keyboard_pack
+ORDER BY updated_at DESC, name COLLATE NOCASE;
+
+selectKeyboardPackById:
+SELECT *
+FROM keyboard_pack
+WHERE id = ?;
+
+insertKeyboardPack:
+INSERT INTO keyboard_pack(
+  id, name, author, version, description, cover_path, created_at, updated_at
+) VALUES (?, ?, ?, ?, ?, ?, ?, ?);
+
+updateKeyboardPack:
+UPDATE keyboard_pack
+SET name = ?, author = ?, version = ?, description = ?, cover_path = ?, updated_at = ?
+WHERE id = ?;
+
+deleteKeyboardPack:
+DELETE FROM keyboard_pack
+WHERE id = ?;
+
+deleteEpisodeMapsForPack:
+DELETE FROM episode_map
+WHERE section_id IN (
+  SELECT id FROM keyboard_section WHERE pack_id = ?
+);
+
+selectEpisodeMapsForPack:
+SELECT episode_map.*
+FROM episode_map
+JOIN keyboard_section ON keyboard_section.id = episode_map.section_id
+WHERE keyboard_section.pack_id = ?
+ORDER BY episode_map.target_id, episode_map.normalized_title;
+
+selectEpisodeMapByTargetTitle:
+SELECT *
+FROM episode_map
+WHERE target_id = ? AND normalized_title = ?;
+
+selectEpisodeMapsByTarget:
+SELECT *
+FROM episode_map
+WHERE target_id = ?
+ORDER BY updated_at DESC, id;
+
+upsertEpisodeMap:
+INSERT OR REPLACE INTO episode_map(
+  id, target_id, normalized_title, section_id, confidence, updated_at
+) VALUES (?, ?, ?, ?, ?, ?);
+
+deleteEpisodeMap:
+DELETE FROM episode_map
+WHERE id = ?;
+
+upsertContentFollowState:
+INSERT OR REPLACE INTO content_follow_state(
+  target_id, app_identifier, pack_id, section_id, group_id,
+  playback_position_ms, confidence, observed_at
+) VALUES (?, ?, ?, ?, ?, ?, ?, ?);
+
+selectLatestContentFollowStateForApp:
+SELECT *
+FROM content_follow_state
+WHERE app_identifier = ? AND observed_at >= ?
+ORDER BY observed_at DESC
+LIMIT 1;
+
+deleteContentFollowState:
+DELETE FROM content_follow_state
+WHERE target_id = ?;
+
+deletePhraseUsageForPack:
+DELETE FROM phrase_usage
+WHERE phrase_id IN (
+  SELECT phrase_item.id
+  FROM phrase_item
+  JOIN phrase_group ON phrase_group.id = phrase_item.group_id
+  JOIN keyboard_section ON keyboard_section.id = phrase_group.section_id
+  WHERE keyboard_section.pack_id = ?
+);
+
+deletePhrasesForPack:
+DELETE FROM phrase_item
+WHERE group_id IN (
+  SELECT phrase_group.id
+  FROM phrase_group
+  JOIN keyboard_section ON keyboard_section.id = phrase_group.section_id
+  WHERE keyboard_section.pack_id = ?
+);
+
+deleteGroupsForPack:
+DELETE FROM phrase_group
+WHERE section_id IN (
+  SELECT id FROM keyboard_section WHERE pack_id = ?
+);
+
+deleteSectionsForPack:
+DELETE FROM keyboard_section
+WHERE pack_id = ?;
+
+selectSectionsForPack:
+SELECT *
+FROM keyboard_section
+WHERE pack_id = ?
+ORDER BY sort_order, title COLLATE NOCASE;
+
+selectPackIdForSection:
+SELECT pack_id
+FROM keyboard_section
+WHERE id = ?;
+
+insertKeyboardSection:
+INSERT INTO keyboard_section(
+  id, pack_id, title, type, episode_number, sort_order
+) VALUES (?, ?, ?, ?, ?, ?);
+
+updateKeyboardSection:
+UPDATE keyboard_section
+SET title = ?, type = ?, episode_number = ?, sort_order = ?
+WHERE id = ?;
+
+deleteKeyboardSection:
+DELETE FROM keyboard_section
+WHERE id = ?;
+
+selectGroupsForSection:
+SELECT *
+FROM phrase_group
+WHERE section_id = ?
+ORDER BY sort_order, title COLLATE NOCASE;
+
+insertPhraseGroup:
+INSERT INTO phrase_group(
+  id, section_id, title, start_ms, end_ms, sort_order
+) VALUES (?, ?, ?, ?, ?, ?);
+
+updatePhraseGroup:
+UPDATE phrase_group
+SET title = ?, start_ms = ?, end_ms = ?, sort_order = ?
+WHERE id = ?;
+
+deletePhraseGroup:
+DELETE FROM phrase_group
+WHERE id = ?;
+
+selectPhrasesForGroup:
+SELECT *
+FROM phrase_item
+WHERE group_id = ?
+ORDER BY sort_order, created_at;
+
+selectPhraseById:
+SELECT *
+FROM phrase_item
+WHERE id = ?;
+
+insertPhrase:
+INSERT INTO phrase_item(
+  id, group_id, text, tags_json, source_json, review_state,
+  enabled, sort_order, created_at, updated_at
+) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+
+updatePhrase:
+UPDATE phrase_item
+SET text = ?, tags_json = ?, source_json = ?, review_state = ?,
+    enabled = ?, sort_order = ?, updated_at = ?
+WHERE id = ?;
+
+deletePhrase:
+DELETE FROM phrase_item
+WHERE id = ?;
+
+searchPhrases:
+SELECT phrase_item.*
+FROM phrase_item
+JOIN phrase_group ON phrase_group.id = phrase_item.group_id
+JOIN keyboard_section ON keyboard_section.id = phrase_group.section_id
+WHERE keyboard_section.pack_id = ?
+  AND phrase_item.text LIKE '%' || ? || '%'
+ORDER BY keyboard_section.sort_order, phrase_group.sort_order, phrase_item.sort_order;
+
+selectTargetProfiles:
+SELECT *
+FROM target_profile
+ORDER BY platform, id;
+
+selectTargetProfileById:
+SELECT *
+FROM target_profile
+WHERE id = ?;
+
+upsertTargetProfile:
+INSERT OR REPLACE INTO target_profile(
+  id, platform, profile_json, profile_version, updated_at
+) VALUES (?, ?, ?, ?, ?);
+
+deleteTargetProfile:
+DELETE FROM target_profile
+WHERE id = ?;
+
+selectTargetRuleRevisions:
+SELECT *
+FROM target_rule_revision
+ORDER BY rule_id, revision DESC;
+
+selectTargetRuleRevisionsByRuleId:
+SELECT *
+FROM target_rule_revision
+WHERE rule_id = ?
+ORDER BY revision DESC;
+
+selectTargetRuleRevision:
+SELECT *
+FROM target_rule_revision
+WHERE rule_id = ? AND revision = ?;
+
+upsertTargetRuleRevision:
+INSERT OR REPLACE INTO target_rule_revision(
+  rule_id, revision, source, signature_state, state,
+  envelope_json, imported_at, activated_at
+) VALUES (?, ?, ?, ?, ?, ?, ?, ?);
+
+updateTargetRuleRevisionState:
+UPDATE target_rule_revision
+SET state = ?, activated_at = ?
+WHERE rule_id = ? AND revision = ?;
+
+supersedeActiveTargetRuleRevisions:
+UPDATE target_rule_revision
+SET state = 'Superseded'
+WHERE rule_id = ? AND state = 'Active' AND revision != ?;
+
+selectRecentSendRecords:
+SELECT *
+FROM send_record
+WHERE final_text != ''
+ORDER BY started_at DESC
+LIMIT ?;
+
+insertSendRecord:
+INSERT INTO send_record(
+  id, task_id, phrase_id, pack_id, target_id, final_text, mode,
+  locator_source, confidence, result, error_code, started_at, finished_at
+) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+
+clearSendRecordDetails:
+UPDATE send_record
+SET task_id = NULL,
+    phrase_id = '',
+    pack_id = '',
+    final_text = '',
+    mode = 'InsertOnly',
+    locator_source = NULL,
+    confidence = NULL,
+    error_code = NULL;
+
+deleteClearedSendRecordsBefore:
+DELETE FROM send_record
+WHERE final_text = ''
+  AND COALESCE(finished_at, started_at) <= ?;
+
+countSubmittedSendsForTargetSince:
+SELECT COUNT(*)
+FROM send_record
+WHERE target_id = ?
+  AND COALESCE(finished_at, started_at) >= ?
+  AND result IN ('submitted', 'success');
+
+selectLatestSendAttemptAt:
+SELECT MAX(COALESCE(finished_at, started_at))
+FROM send_record
+WHERE target_id = ?
+  AND result IN ('submitted', 'success', 'unconfirmed', 'failed');
+
+insertDiagnosticEvent:
+INSERT INTO diagnostic_event(
+  id, level, event_code, target_id, task_id, details_json, created_at
+) VALUES (?, ?, ?, ?, ?, ?, ?);
+
+selectRecentDiagnosticEvents:
+SELECT *
+FROM diagnostic_event
+ORDER BY created_at DESC
+LIMIT ?;
+
+deleteDiagnosticsBefore:
+DELETE FROM diagnostic_event
+WHERE created_at < ?;
+
+deleteAllDiagnosticEvents:
+DELETE FROM diagnostic_event;

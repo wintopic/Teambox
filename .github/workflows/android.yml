@@ -1,0 +1,54 @@
+name: Android CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: android-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Validate Gradle wrapper
+        uses: gradle/actions/wrapper-validation@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Install Android SDK packages
+        run: sdkmanager "platforms;android-35" "build-tools;35.0.0"
+
+      - name: Set up Gradle cache
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Build debug APK and run tests
+        run: |
+          chmod +x gradlew
+          ./gradlew \
+            :shared:desktopTest \
+            :composeApp:desktopTest \
+            :composeApp:testDebugUnitTest \
+            :androidRuntime:testDebugUnitTest \
+            :composeApp:assembleDebug \
+            :composeApp:assembleRelease \
+            :composeApp:verifyReleaseManifestPolicy \
+            --stacktrace \
+            --console=plain

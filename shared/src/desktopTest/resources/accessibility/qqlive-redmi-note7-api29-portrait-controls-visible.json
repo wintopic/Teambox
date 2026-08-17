@@ -1,0 +1,989 @@
+{
+    "format": "danmukey-accessibility-fixture",
+    "formatVersion": 1,
+    "capturedAt": 1786779801378,
+    "packageName": "com.tencent.qqlive",
+    "appVersionCode": 32123,
+    "systemApi": 29,
+    "orientation": "Portrait",
+    "screenWidth": 1080,
+    "screenHeight": 2340,
+    "nodes": [
+        {
+            "depth": 7,
+            "className": "android.view.View",
+            "resourceId": null,
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 441,
+                "top": 100,
+                "right": 649,
+                "bottom": 177
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 6,
+            "className": "android.view.View",
+            "resourceId": null,
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 693,
+                "top": 86,
+                "right": 798,
+                "bottom": 191
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 6,
+            "className": "android.view.View",
+            "resourceId": null,
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 837,
+                "top": 103,
+                "right": 909,
+                "bottom": 175
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 6,
+            "className": "android.view.View",
+            "resourceId": null,
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 964,
+                "top": 103,
+                "right": 1036,
+                "bottom": 175
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 6,
+            "className": "android.view.View",
+            "resourceId": null,
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 28,
+                "top": 566,
+                "right": 133,
+                "bottom": 671
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 6,
+            "className": "android.view.View",
+            "resourceId": null,
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 842,
+                "top": 566,
+                "right": 947,
+                "bottom": 671
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 6,
+            "className": "android.view.View",
+            "resourceId": null,
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 947,
+                "top": 566,
+                "right": 1052,
+                "bottom": 671
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 6,
+            "className": "android.view.View",
+            "resourceId": null,
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 11,
+                "top": 86,
+                "right": 116,
+                "bottom": 191
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 6,
+            "className": "android.view.View",
+            "resourceId": null,
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 44,
+                "top": 802,
+                "right": 512,
+                "bottom": 806
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 6,
+            "className": "android.view.View",
+            "resourceId": null,
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 728,
+                "top": 798,
+                "right": 1036,
+                "bottom": 806
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 7,
+            "className": "android.view.View",
+            "resourceId": null,
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 44,
+                "top": 706,
+                "right": 138,
+                "bottom": 802
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 7,
+            "className": "android.view.View",
+            "resourceId": null,
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 182,
+                "top": 706,
+                "right": 276,
+                "bottom": 802
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 7,
+            "className": "android.view.View",
+            "resourceId": null,
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 320,
+                "top": 706,
+                "right": 512,
+                "bottom": 802
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 7,
+            "className": "android.view.View",
+            "resourceId": null,
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 556,
+                "top": 706,
+                "right": 688,
+                "bottom": 802
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 6,
+            "className": "android.view.View",
+            "resourceId": null,
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 728,
+                "top": 710,
+                "right": 1036,
+                "bottom": 798
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 8,
+            "className": "android.view.View",
+            "resourceId": null,
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 0,
+                "top": 806,
+                "right": 1080,
+                "bottom": 948
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 10,
+            "className": "android.view.View",
+            "resourceId": null,
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 44,
+                "top": 882,
+                "right": 511,
+                "bottom": 948
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 10,
+            "className": "android.view.View",
+            "resourceId": null,
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 528,
+                "top": 882,
+                "right": 723,
+                "bottom": 948
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 10,
+            "className": "android.view.View",
+            "resourceId": null,
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 740,
+                "top": 882,
+                "right": 1026,
+                "bottom": 948
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 10,
+            "className": "android.view.View",
+            "resourceId": null,
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 1043,
+                "top": 882,
+                "right": 1080,
+                "bottom": 948
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 8,
+            "className": "android.view.View",
+            "resourceId": null,
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 44,
+                "top": 1003,
+                "right": 193,
+                "bottom": 1108
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 8,
+            "className": "android.view.View",
+            "resourceId": null,
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 255,
+                "top": 1003,
+                "right": 404,
+                "bottom": 1108
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 8,
+            "className": "android.view.View",
+            "resourceId": null,
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 466,
+                "top": 1003,
+                "right": 615,
+                "bottom": 1108
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 8,
+            "className": "android.view.View",
+            "resourceId": null,
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 676,
+                "top": 1003,
+                "right": 825,
+                "bottom": 1108
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 8,
+            "className": "android.view.View",
+            "resourceId": null,
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 887,
+                "top": 1003,
+                "right": 1036,
+                "bottom": 1108
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 8,
+            "className": "android.view.View",
+            "resourceId": null,
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 44,
+                "top": 1163,
+                "right": 1036,
+                "bottom": 1224
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 9,
+            "className": "android.view.View",
+            "resourceId": null,
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 627,
+                "top": 1176,
+                "right": 663,
+                "bottom": 1212
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 9,
+            "className": "android.view.View",
+            "resourceId": null,
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 725,
+                "top": 1163,
+                "right": 1019,
+                "bottom": 1224
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 8,
+            "className": "android.view.View",
+            "resourceId": null,
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 0,
+                "top": 1224,
+                "right": 1080,
+                "bottom": 1329
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 9,
+            "className": "android.view.View",
+            "resourceId": null,
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 44,
+                "top": 1252,
+                "right": 188,
+                "bottom": 1329
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 9,
+            "className": "android.view.View",
+            "resourceId": null,
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 216,
+                "top": 1252,
+                "right": 426,
+                "bottom": 1329
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 9,
+            "className": "android.view.View",
+            "resourceId": null,
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 0,
+                "top": 1357,
+                "right": 117,
+                "bottom": 1517
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 9,
+            "className": "android.view.View",
+            "resourceId": null,
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 139,
+                "top": 1357,
+                "right": 299,
+                "bottom": 1517
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 9,
+            "className": "android.view.View",
+            "resourceId": null,
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 321,
+                "top": 1357,
+                "right": 481,
+                "bottom": 1517
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 9,
+            "className": "android.view.View",
+            "resourceId": null,
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 503,
+                "top": 1357,
+                "right": 663,
+                "bottom": 1517
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 9,
+            "className": "android.view.View",
+            "resourceId": null,
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 685,
+                "top": 1357,
+                "right": 845,
+                "bottom": 1517
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 9,
+            "className": "android.view.View",
+            "resourceId": null,
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 867,
+                "top": 1357,
+                "right": 1027,
+                "bottom": 1517
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 9,
+            "className": "android.view.View",
+            "resourceId": null,
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 1049,
+                "top": 1357,
+                "right": 1080,
+                "bottom": 1517
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 12,
+            "className": "android.widget.RelativeLayout",
+            "resourceId": "com.tencent.qqlive:id/arg",
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 0,
+                "top": 1534,
+                "right": 1080,
+                "bottom": 1961
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 15,
+            "className": "android.widget.FrameLayout",
+            "resourceId": "com.tencent.qqlive:id/arg",
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 554,
+                "top": 1564,
+                "right": 692,
+                "bottom": 1641
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 15,
+            "className": "android.widget.ImageView",
+            "resourceId": "com.tencent.qqlive:id/arg",
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 44,
+                "top": 1564,
+                "right": 692,
+                "bottom": 1928
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 14,
+            "className": "android.widget.RelativeLayout",
+            "resourceId": "com.tencent.qqlive:id/arg",
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 692,
+                "top": 1564,
+                "right": 1036,
+                "bottom": 1928
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 17,
+            "className": "android.widget.TextView",
+            "resourceId": "com.tencent.qqlive:id/arg",
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 725,
+                "top": 1618,
+                "right": 1003,
+                "bottom": 1774
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 17,
+            "className": "android.widget.LinearLayout",
+            "resourceId": "com.tencent.qqlive:id/arg",
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 761,
+                "top": 1807,
+                "right": 966,
+                "bottom": 1873
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 8,
+            "className": "android.view.View",
+            "resourceId": null,
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 0,
+                "top": 1961,
+                "right": 964,
+                "bottom": 2035
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 9,
+            "className": "android.view.View",
+            "resourceId": null,
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 0,
+                "top": 1961,
+                "right": 783,
+                "bottom": 2035
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 10,
+            "className": "android.view.View",
+            "resourceId": null,
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 44,
+                "top": 1983,
+                "right": 220,
+                "bottom": 2035
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 10,
+            "className": "android.view.View",
+            "resourceId": null,
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 261,
+                "top": 1983,
+                "right": 349,
+                "bottom": 2035
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 10,
+            "className": "android.view.View",
+            "resourceId": null,
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 390,
+                "top": 1983,
+                "right": 522,
+                "bottom": 2035
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 10,
+            "className": "android.view.View",
+            "resourceId": null,
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 563,
+                "top": 1983,
+                "right": 739,
+                "bottom": 2035
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 8,
+            "className": "android.view.View",
+            "resourceId": null,
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 992,
+                "top": 1987,
+                "right": 1036,
+                "bottom": 2031
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 9,
+            "className": "android.view.View",
+            "resourceId": null,
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 44,
+                "top": 2063,
+                "right": 475,
+                "bottom": 2340
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 10,
+            "className": "android.widget.TextView",
+            "resourceId": null,
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 44,
+                "top": 2328,
+                "right": 475,
+                "bottom": 2340
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 9,
+            "className": "android.view.View",
+            "resourceId": null,
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 497,
+                "top": 2063,
+                "right": 928,
+                "bottom": 2340
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 10,
+            "className": "android.widget.TextView",
+            "resourceId": null,
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 497,
+                "top": 2328,
+                "right": 928,
+                "bottom": 2340
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 12,
+            "className": "android.widget.RelativeLayout",
+            "resourceId": "com.tencent.qqlive:id/arg",
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 950,
+                "top": 2063,
+                "right": 1080,
+                "bottom": 2340
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 15,
+            "className": "android.widget.ImageView",
+            "resourceId": "com.tencent.qqlive:id/arg",
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 950,
+                "top": 2063,
+                "right": 1080,
+                "bottom": 2308
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 14,
+            "className": "android.widget.RelativeLayout",
+            "resourceId": "com.tencent.qqlive:id/arg",
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 950,
+                "top": 2308,
+                "right": 1080,
+                "bottom": 2340
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 16,
+            "className": "android.widget.RelativeLayout",
+            "resourceId": "com.tencent.qqlive:id/arg",
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 950,
+                "top": 2308,
+                "right": 1080,
+                "bottom": 2340
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 17,
+            "className": "android.widget.TextView",
+            "resourceId": "com.tencent.qqlive:id/arg",
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 950,
+                "top": 2330,
+                "right": 1080,
+                "bottom": 2340
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 4,
+            "className": "androidx.recyclerview.widget.RecyclerView",
+            "resourceId": null,
+            "clickable": false,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 0,
+                "top": 80,
+                "right": 1080,
+                "bottom": 1812
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        }
+    ]
+}

@@ -1,0 +1,14 @@
+CREATE TABLE target_rule_revision (
+  rule_id TEXT NOT NULL,
+  revision INTEGER NOT NULL,
+  source TEXT NOT NULL,
+  signature_state TEXT NOT NULL,
+  state TEXT NOT NULL,
+  envelope_json TEXT NOT NULL,
+  imported_at INTEGER NOT NULL,
+  activated_at INTEGER,
+  PRIMARY KEY (rule_id, revision)
+);
+
+CREATE INDEX target_rule_revision_state_idx
+  ON target_rule_revision(rule_id, state, activated_at DESC);

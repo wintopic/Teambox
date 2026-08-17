@@ -1,0 +1,93 @@
+{
+    "format": "danmukey-accessibility-fixture",
+    "formatVersion": 1,
+    "capturedAt": 1786765896246,
+    "packageName": "com.danmukey.testhost",
+    "appVersionCode": 1,
+    "systemApi": 29,
+    "orientation": "Portrait",
+    "screenWidth": 1080,
+    "screenHeight": 2340,
+    "nodes": [
+        {
+            "depth": 4,
+            "className": "android.widget.Button",
+            "resourceId": "com.danmukey.testhost:id/cycle_test_mode",
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 55,
+                "top": 485,
+                "right": 1025,
+                "bottom": 617
+            },
+            "safeText": "切换故障模式",
+            "safeContentDescription": "切换测试故障模式"
+        },
+        {
+            "depth": 4,
+            "className": "android.widget.Button",
+            "resourceId": "com.danmukey.testhost:id/open_composer",
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 55,
+                "top": 617,
+                "right": 1025,
+                "bottom": 749
+            },
+            "safeText": "发弹幕",
+            "safeContentDescription": "打开弹幕输入入口"
+        },
+        {
+            "depth": 5,
+            "className": "android.widget.EditText",
+            "resourceId": "com.danmukey.testhost:id/danmu_input",
+            "clickable": true,
+            "editable": true,
+            "focusable": true,
+            "bounds": {
+                "left": 55,
+                "top": 752,
+                "right": 783,
+                "bottom": 877
+            },
+            "safeText": null,
+            "safeContentDescription": null
+        },
+        {
+            "depth": 5,
+            "className": "android.widget.Button",
+            "resourceId": "com.danmukey.testhost:id/send_danmu",
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 783,
+                "top": 749,
+                "right": 1025,
+                "bottom": 881
+            },
+            "safeText": "发送",
+            "safeContentDescription": "发送弹幕"
+        },
+        {
+            "depth": 4,
+            "className": "android.view.View",
+            "resourceId": "com.danmukey.testhost:id/custom_send_surface",
+            "clickable": true,
+            "editable": false,
+            "focusable": true,
+            "bounds": {
+                "left": 55,
+                "top": 925,
+                "right": 1025,
+                "bottom": 1101
+            },
+            "safeText": null,
+            "safeContentDescription": "自绘发送控件"
+        }
+    ]
+}

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="open_composer" type="id" />
+    <item name="composer_container" type="id" />
+    <item name="danmu_input" type="id" />
+    <item name="send_danmu" type="id" />
+    <item name="custom_send_surface" type="id" />
+    <item name="last_sent_text" type="id" />
+    <item name="test_mode_text" type="id" />
+    <item name="cycle_test_mode" type="id" />
+    <item name="episode_title" type="id" />
+    <item name="playback_time" type="id" />
+    <item name="advance_playback" type="id" />
+</resources>

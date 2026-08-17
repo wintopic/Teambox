@@ -1,0 +1,68 @@
+# Gradle / Kotlin
+.gradle/
+.kotlin/
+build/
+**/build/
+out/
+.externalNativeBuild/
+.cxx/
+
+# IDE / OS
+.idea/
+*.iml
+.DS_Store
+Thumbs.db
+
+# Local SDK and machine-specific environment
+local.properties
+/scripts/dev-env.ps1
+.env
+.env.*
+!.env.example
+secrets.properties
+credentials.properties
+
+# Signing and release secrets
+signing.properties
+keystore.properties
+key.properties
+release.properties
+*.jks
+*.keystore
+*.p12
+*.pfx
+*.pem
+*.key
+
+# Android packages and local release output
+*.apk
+*.aab
+*.apks
+*.idsig
+/artifacts/
+/release/
+
+# Device captures, screenshots, UI dumps and local databases
+captures/
+screenshots/
+screen-captures/
+device-screenshots/
+screenshot-*.png
+screen-*.png
+uiautomator-*.xml
+device-*.xml
+*.db
+*.sqlite
+*.sqlite3
+*.hprof
+*.log
+
+# Codex/local verification artifacts
+.codex-*
+
+# Pre-Teambox local planning notes; intentionally excluded from the public repository
+/docs/Android内测发布清单.md
+/docs/国内上架清单.md
+/docs/开发计划.md
+/docs/无障碍与系统权限说明.md
+/docs/隐私政策.md
